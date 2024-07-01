@@ -25,6 +25,13 @@ function handleDrop(e) {
   e.preventDefault();
   let droppedElementId = e.dataTransfer.getData("draggedElement");
   console.log(droppedElementId);
+
+  //using the if and return statement the problem is going to fix
+
+  if (this.children.length > 0) {
+    console.log("This drop zone already has a puzzle piece.");
+    return;
+  }
   this.appendChild(document.querySelector(`#${droppedElementId}`));
 }
 
