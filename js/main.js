@@ -5,10 +5,12 @@ const theButtons = document.querySelectorAll("#buttonHolder img");
 const puzzleBoard = document.querySelector(".puzzle-board");
 const puzzlePieces = document.querySelectorAll(".puzzle-pieces img");
 const dropZones = document.querySelectorAll(".drop-zone");
+const puzzlePiecesDiv = document.querySelector(".puzzle-pieces");
 
 //functions
 function changeBGImage() {
   puzzleBoard.style.backgroundImage = `url('./images/backGround${this.dataset.bgref}.jpg')`;
+  puzzlePieces.forEach((piece) => puzzlePiecesDiv.appendChild(piece));
 }
 
 function handleStartDrag(event) {
@@ -41,10 +43,6 @@ theButtons.forEach((button) => button.addEventListener("click", changeBGImage));
 puzzlePieces.forEach((piece) =>
   piece.addEventListener("dragstart", handleStartDrag)
 );
-
-// dropZones.forEach((zone) => zone.addEventListener("dragover", handleOver));
-
-// dropZones.forEach((zone) => zone.addEventListener("drop", handleDrop));
 
 dropZones.forEach((zone) => {
   zone.addEventListener("dragover", handleOver);
